@@ -1,0 +1,113 @@
+﻿<html>
+<head>
+<title> Hello </title> 
+<style>
+body{
+         text-align:center;
+}
+ .my-custom-button {
+  /* Colors and Font */
+  background-color: #007BFF; /* Primary blue color */
+  color: #FFFFFF;            /* White text color */
+  font-size: 16px;           /* Text sizing */
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+
+  /* Box Sizing & Spacing */
+  padding: 12px 24px;        /* Vertical and horizontal spacing inside */
+  border: none;              /* Removes default harsh browser border */
+  border-radius: 6px;        /* Creates modern, slightly rounded corners */
+  
+  /* UX Enhancements */
+  cursor: pointer;           /* Changes the mouse cursor to a hand on hover */
+  outline: none;             /* Cleans up default clicking outlines */
+  transition: all 0.3s ease; /* Blends color transitions smoothly */
+  
+  /* Subtle Shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+/* Hover State - Triggers when hovering with a mouse */
+.my-custom-button:hover {
+  background-color: #0056b3; /* Darker blue shade */
+  transform: translateY(-1px); /* Subtly lifts the button up */
+}
+
+/* Active State - Triggers exactly while clicking down */
+.my-custom-button:active {
+  background-color: #004085;  /* Deepest blue shade */
+  transform: translateY(1px);  /* Pushes down to mimic a physical click */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+</style>
+</head> 
+<body>
+<h1><b> Welcome </b></h1></br></br>
+<h3><u> Resin Artist </u></h3> </br>
+<h5><i> Preserve Your Memories With Resin </i></h5></br>
+<p> We make HANDMADE decoration items and jewelry for our costumers to its fullest details and with care </p></br></br> 
+<img src="keychin.jpg" alt="Keychain" width="300" length="auto">
+<h2> Order Now </h2>
+<form id="orderForm">
+
+<label>Name</label><br>
+<input type="text" id="name" required><br><br>
+
+<label>Phone Number</label><br>
+<input type="tel" id="phone" required><br><br>
+
+<textarea
+id="order"
+rows="8"
+cols="30"
+placeholder="Describe what you want..."
+required></textarea>
+
+<br><br>
+
+<button type="submit" class="my-custom-button">
+Order Now
+</button>
+
+</form>
+
+<p id="message"></p></br></br>
+<img src="Noor.png" alt="ad" width="500" length="auto">
+</form> 
+<script>
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbxiveChvtowxTH3TTy9dmExqJLEyiinHhHzLfehG3ykEEvPdtzB4-drTTP913GQWYmvsw/exec";
+
+document
+.getElementById("orderForm")
+.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const data = {
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    order: document.getElementById("order").value
+};
+
+fetch(scriptURL,{
+    method:"POST",
+    body:JSON.stringify(data)
+})
+.then(()=>{
+    document.getElementById("message").innerHTML =
+    "✅ Your order has been placed!";
+
+    document.getElementById("orderForm").reset();
+})
+.catch(()=>{
+    document.getElementById("message").innerHTML =
+    "❌ Something went wrong.";
+});
+
+});
+
+</script>
+</body> 
+</html>
+ 
