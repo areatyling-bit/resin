@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Place an Order | Noor Art</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="test.css">
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+<img src="images/logo.png" alt="Noor Art Logo">
+<span>Noor Art</span>
+</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="products.html">Collection</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</nav>
+
+<section class="order-section">
+
+<h1>Place Your Order</h1>
+
+<p>Tell us what you'd like us to create for you. 🌸</p>
+
+<form id="orderForm">
+
+<label for="name">Your Name</label>
+<input type="text" id="name" required>
+
+<label for="phone">Phone Number</label>
+<input type="tel" id="phone" required>
+
+<label for="order">Your Order / Customization</label>
+<textarea id="order" rows="7" required
+placeholder="Example: Resin keychain with purple flowers and the name Ayesha"></textarea>
+
+<button type="submit">Place Order</button>
+
+</form>
+
+<p id="message"></p>
+
+</section>
+
+<script>
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbzSDX2f3fP78UCHb-_YmSrYH2OGgsOXdRjGkHEP-wkbRKOOLtGw57H6y1SkrmS8TJft/exec";
+
+const form = document.getElementById("orderForm");
+const message = document.getElementById("message");
+
+form.addEventListener("submit", async function(event) {
+
+event.preventDefault();
+
+message.textContent = "Sending your order...";
+
+const data = {
+name: document.getElementById("name").value,
+phone: document.getElementById("phone").value,
+order: document.getElementById("order").value
+};
+
+try {
+
+await fetch(scriptURL, {
+method: "POST",
+mode: "no-cors",
+headers: {
+"Content-Type": "text/plain;charset=utf-8"
+},
+body: JSON.stringify(data)
+});
+
+form.reset();
+
+message.textContent =
+"🎉 Thank you! Your order has been sent successfully. Noor Art will contact you soon. 🌸";
+
+} catch (error) {
+
+console.error(error);
+
+message.textContent =
+"Something went wrong. Please try again or contact Noor Art directly.";
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

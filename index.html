@@ -1,113 +1,305 @@
-﻿<html>
+﻿<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title> Hello </title> 
-<style>
-body{
-         text-align:center;
-}
- .my-custom-button {
-  /* Colors and Font */
-  background-color: #007BFF; /* Primary blue color */
-  color: #FFFFFF;            /* White text color */
-  font-size: 16px;           /* Text sizing */
-  font-family: Arial, sans-serif;
-  font-weight: bold;
 
-  /* Box Sizing & Spacing */
-  padding: 12px 24px;        /* Vertical and horizontal spacing inside */
-  border: none;              /* Removes default harsh browser border */
-  border-radius: 6px;        /* Creates modern, slightly rounded corners */
-  
-  /* UX Enhancements */
-  cursor: pointer;           /* Changes the mouse cursor to a hand on hover */
-  outline: none;             /* Cleans up default clicking outlines */
-  transition: all 0.3s ease; /* Blends color transitions smoothly */
-  
-  /* Subtle Shadow */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* Hover State - Triggers when hovering with a mouse */
-.my-custom-button:hover {
-  background-color: #0056b3; /* Darker blue shade */
-  transform: translateY(-1px); /* Subtly lifts the button up */
-}
+<title>Noor Arts | Handmade Resin Creations</title>
 
-/* Active State - Triggers exactly while clicking down */
-.my-custom-button:active {
-  background-color: #004085;  /* Deepest blue shade */
-  transform: translateY(1px);  /* Pushes down to mimic a physical click */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-}
-</style>
-</head> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="test.css">
+
+</head>
+
 <body>
-<h1><b> Welcome </b></h1></br></br>
-<h3><u> Resin Artist </u></h3> </br>
-<h5><i> Preserve Your Memories With Resin </i></h5></br>
-<p> We make HANDMADE decoration items and jewelry for our costumers to its fullest details and with care </p></br></br> 
-<img src="keychin.jpg" alt="Keychain" width="300" length="auto">
-<h2> Order Now </h2>
-<form id="orderForm">
 
-<label>Name</label><br>
-<input type="text" id="name" required><br><br>
+<header>
 
-<label>Phone Number</label><br>
-<input type="tel" id="phone" required><br><br>
+<nav>
 
-<textarea
-id="order"
-rows="8"
-cols="30"
-placeholder="Describe what you want..."
-required></textarea>
+<div class="logo">
 
-<br><br>
+<img src="images/logo.png" alt="Noor Arts Logo">
 
-<button type="submit" class="my-custom-button">
-Order Now
-</button>
+<span>Noor Arts</span>
 
-</form>
+</div> 
 
-<p id="message"></p></br></br>
-<img src="Noor.png" alt="ad" width="500" length="auto">
-</form> 
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="products.html">Collection</a></li>
+
+<li><a href="gallery.html">Gallery</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>Noor Arts</h1>
+
+<h2>Where Memories Become Timeless Art</h2>
+
+<p>
+
+Handcrafted resin creations made with love to preserve your most precious memories forever.
+
+</p>
+
+<a href="products.html" class="btn">
+
+Shop Collection
+
+</a>
+
+</div>
+
+</section>
+
+<section class="features">
+
+<h2>Why Choose Noor Arts?</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>💜 Handmade</h3>
+
+<p>Every product is carefully handmade with love and attention to detail.</p>
+
+</div>
+
+<div class="card">
+
+<h3>💎 Premium Resin</h3>
+
+<p>Only high-quality materials are used to ensure lasting beauty.</p>
+
+</div>
+
+<div class="card">
+
+<h3>🎁 Perfect Gifts</h3>
+
+<p>Create unforgettable gifts that preserve life's special moments.</p>
+
+</div>
+
+<div class="card">
+
+<h3>🌸 Custom Designs</h3>
+
+<p>Every order is personalized to match your unique style.</p>
+
+</div>
+
+</div>
+
+</section>
+<section class="reviews">
+
+    <h2>What Our Customers Say</h2>
+
+    <p class="reviews-subtitle">
+        We'd love to hear about your Noor Art experience. 🌸
+    </p>
+
+    <div id="reviewsList">
+        <p>Loading reviews...</p>
+    </div>
+
+    <div class="review-form-box">
+
+        <h3>Leave a Review</h3>
+
+        <form id="reviewForm">
+
+            <input
+                type="text"
+                id="reviewName"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="text"
+                id="reviewProduct"
+                placeholder="Which product did you buy?"
+                required
+            >
+
+            <select id="reviewRating" required>
+                <option value="">Choose a rating</option>
+                <option value="5">⭐⭐⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="1">⭐</option>
+            </select>
+
+            <textarea
+                id="reviewText"
+                rows="5"
+                placeholder="Write your review..."
+                required
+            ></textarea>
+
+            <button type="submit">Submit Review</button>
+
+        </form>
+
+        <p id="reviewMessage"></p>
+
+    </div>
+
+</section>
 <script>
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbxiveChvtowxTH3TTy9dmExqJLEyiinHhHzLfehG3ykEEvPdtzB4-drTTP913GQWYmvsw/exec";
+const reviewScriptURL =
+"https://script.google.com/macros/s/AKfycbzSDX2f3fP78UCHb-_YmSrYH2OGgsOXdRjGkHEP-wkbRKOOLtGw57H6y1SkrmS8TJft/exec";
 
-document
-.getElementById("orderForm")
-.addEventListener("submit", function(e){
+const reviewForm = document.getElementById("reviewForm");
+const reviewsList = document.getElementById("reviewsList");
+const reviewMessage = document.getElementById("reviewMessage");
 
-e.preventDefault();
 
-const data = {
-    name: document.getElementById("name").value,
-    phone: document.getElementById("phone").value,
-    order: document.getElementById("order").value
-};
+function loadReviews() {
 
-fetch(scriptURL,{
-    method:"POST",
-    body:JSON.stringify(data)
-})
-.then(()=>{
-    document.getElementById("message").innerHTML =
-    "✅ Your order has been placed!";
+    fetch(reviewScriptURL)
+    .then(response => response.json())
+    .then(reviews => {
 
-    document.getElementById("orderForm").reset();
-})
-.catch(()=>{
-    document.getElementById("message").innerHTML =
-    "❌ Something went wrong.";
+        if (reviews.length === 0) {
+
+            reviewsList.innerHTML =
+                "<p>No reviews yet. Be the first to leave one! 🌸</p>";
+
+            return;
+        }
+
+        reviewsList.innerHTML = "";
+
+        reviews.forEach(review => {
+
+            const card = document.createElement("div");
+            card.className = "review-card";
+
+            card.innerHTML = `
+                <div class="review-stars">
+                    ${"⭐".repeat(Number(review.rating))}
+                </div>
+
+                <p>"${review.review}"</p>
+
+                <strong>${review.name}</strong>
+
+                <small>${review.product}</small>
+            `;
+
+            reviewsList.appendChild(card);
+
+        });
+
+    })
+    .catch(() => {
+
+        reviewsList.innerHTML =
+            "<p>Reviews are temporarily unavailable.</p>";
+
+    });
+}
+
+
+reviewForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    reviewMessage.textContent = "Sending your review...";
+
+    const data = {
+
+        type: "review",
+
+        name: document.getElementById("reviewName").value,
+
+        product: document.getElementById("reviewProduct").value,
+
+        rating: document.getElementById("reviewRating").value,
+
+        review: document.getElementById("reviewText").value
+
+    };
+
+
+    fetch(reviewScriptURL, {
+
+        method: "POST",
+
+        mode: "no-cors",
+
+        headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+        },
+
+        body: JSON.stringify(data)
+
+    })
+    .then(() => {
+
+        reviewForm.reset();
+
+        reviewMessage.textContent =
+            "🌸 Thank you! Your review has been submitted.";
+
+        setTimeout(loadReviews, 1000);
+
+    })
+    .catch(() => {
+
+        reviewMessage.textContent =
+            "Something went wrong. Please try again.";
+
+    });
+
 });
 
-});
+
+loadReviews();
 
 </script>
-</body> 
-</html>
+
+<footer>
+
+<p>
+
+© 2026 Noor Arts • Handmade With ❤️
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html> 
  
